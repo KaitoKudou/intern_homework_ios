@@ -16,7 +16,6 @@
 		083FD70024C33D2900383122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083FD6FF24C33D2900383122 /* AppDelegate.swift */; };
 		083FD70924C33D2B00383122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 083FD70824C33D2B00383122 /* Assets.xcassets */; };
 		083FD70C24C33D2B00383122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 083FD70A24C33D2B00383122 /* LaunchScreen.storyboard */; };
-		083FD71724C34D2300383122 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083FD71424C34D2300383122 /* Nuke.framework */; };
 		0841933724D9505800BFCBD3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841933624D9505800BFCBD3 /* Logger.swift */; };
 		0841933924D950FF00BFCBD3 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0841933824D950FF00BFCBD3 /* ErrorType.swift */; };
 		08527CC824C6FEE900C1F1D5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08527CC724C6FEE900C1F1D5 /* LoginViewController.swift */; };
@@ -27,8 +26,26 @@
 		088E557D24D7190300A2FE3E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E557C24D7190300A2FE3E /* MainTabBarController.swift */; };
 		08C5FE1E24CD7256007100CA /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08C5FE1D24CD7256007100CA /* Login.storyboard */; };
 		08C5FE2624CD7A8B007100CA /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C5FE2524CD7A8B007100CA /* Article.swift */; };
-		08EF05C524C37A6600129792 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083FD71524C34D2300383122 /* Rswift.framework */; };
+		44670A5024E09109009C35D1 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083FD71424C34D2300383122 /* Nuke.framework */; };
+		44670A5124E09109009C35D1 /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 083FD71424C34D2300383122 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		44670A5324E0911D009C35D1 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083FD71524C34D2300383122 /* Rswift.framework */; };
+		44670A5424E0911D009C35D1 /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 083FD71524C34D2300383122 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		44670A5224E09109009C35D1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				44670A5124E09109009C35D1 /* Nuke.framework in Embed Frameworks */,
+				44670A5424E0911D009C35D1 /* Rswift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		082CF75E24D569E7001F7680 /* SampleSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleSearch.storyboard; sourceTree = "<group>"; };
@@ -62,8 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08EF05C524C37A6600129792 /* Rswift.framework in Frameworks */,
-				083FD71724C34D2300383122 /* Nuke.framework in Frameworks */,
+				44670A5024E09109009C35D1 /* Nuke.framework in Frameworks */,
+				44670A5324E0911D009C35D1 /* Rswift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +242,8 @@
 				083FD6FA24C33D2900383122 /* Resources */,
 				08A6C8E824C46FA600A812DF /* SwiftLint */,
 				083FD71E24C36F5700383122 /* Run Script Carthage */,
+				44670A5224E09109009C35D1 /* Embed Frameworks */,
+				44670A5524E0915D009C35D1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -342,6 +361,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		44670A5524E0915D009C35D1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Rswift.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
