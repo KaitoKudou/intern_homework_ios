@@ -1,2 +1,2 @@
-github "kean/Nuke"
+github "kean/Nuke" ~> 9.0
 github "mac-cain13/R.swift.Library"
