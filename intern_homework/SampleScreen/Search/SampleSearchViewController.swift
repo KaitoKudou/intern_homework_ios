@@ -4,6 +4,12 @@ final class SampleSearchViewContorller: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchButton.layer.borderWidth = 0.5
+        searchButton.layer.borderColor = UIColor.blue.cgColor
+    }
+    
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         searchArticles()
     }
