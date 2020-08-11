@@ -8,6 +8,11 @@ final class SampleSearchViewContorller: UIViewController {
         searchArticles()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchButton.layer.borderWidth = 1.0
+    }
+    
     private func searchArticles() {
         // 多重タップ防止
         searchButton.isEnabled = false
